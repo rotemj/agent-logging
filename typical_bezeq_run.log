@@ -76,8 +76,6 @@
 }
 
 1970-01-01 00:23:42.164 settings                  (W) Recovery system configuration doesn't exists or not a file
-1970-01-01 00:23:42.165 settings                  (I) command: agent_cli debug 3
-1970-01-01 00:23:42.187 settings                  (I) command: twctl getrelist --modulename mini_httpd
 1970-01-01 00:23:42.224 settings                  (I) Host id is TZFEXSDTK4D MAC address is 00:b8:c2:ae:fc:a2
 1970-01-01 00:23:42.225 settings                  (I) configuration complete
 1970-01-01 00:23:42.225 settings                  (I) Host ID is TZFEXSDTK4D
