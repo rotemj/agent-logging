@@ -87,18 +87,8 @@
 2023-10-31 14:45:01.68 logger                    (I) configuration complete
 2023-10-31 14:45:01.68 mqtt                      (I) MQTT settings parsed and successfully validated
 2023-10-31 14:45:01.69 mqtt                      (I) AWS Enabled: false
-2023-10-31 14:45:01.69 mqtt                      (I) MQTT host: a3ujdhq0dghtyg-ats.iot.us-west-2.amazonaws.com
-2023-10-31 14:45:01.69 mqtt                      (I) MQTT port: 8883
-2023-10-31 14:45:01.69 mqtt                      (I) MQTT protocol version: 5[5]
-2023-10-31 14:45:01.69 mqtt                      (D) MQTT keep_alive_interval_seconds: 120
-2023-10-31 14:45:01.69 mqtt                      (D) MQTT reconnect_delay_seconds: 5
-2023-10-31 14:45:01.69 mqtt                      (D) MQTT reconnect_delay_max_seconds: 300
-2023-10-31 14:45:01.70 mqtt                      (D) MQTT max_downtime: 0
-2023-10-31 14:45:01.70 mqtt                      (D) MQTT username: *hidden*
-2023-10-31 14:45:01.70 mqtt                      (D) MQTT password: *hidden*
-2023-10-31 14:45:01.70 mqtt                      (V) MQTT ca_file: /local/veego/agent/AmazonRootCA1.pem
-2023-10-31 14:45:01.70 mqtt                      (V) MQTT cert_file: /local/veego/agent/device_cert_filename.pem
-2023-10-31 14:45:01.70 mqtt                      (V) MQTT cert_key_file: /local/veego/agent/device_cert_key_filename.key
+2023-10-31 14:45:01.69 mqtt                      (I) MQTT host: a3ujdhq0dghtyg-ats.iot.us-west-2.amazonaws.com | port: 8883 | protocol version: 5[5] | keep_alive_interval_seconds: 120 | reconnect_delay_seconds: 5 | reconnect_delay_max_seconds: 300 | max_downtime: 0 | username: *hidden* | password: *hidden*
+2023-10-31 14:45:01.70 mqtt                      (V) MQTT files: ca_file: /local/veego/agent/AmazonRootCA1.pem cert_file: /local/veego/agent/device_cert_filename.pem cert_key_file: /local/veego/agent/device_cert_key_filename.key
 2023-10-31 14:45:01.70 mqtt                      (I) TLS CA: /local/veego/agent/AmazonRootCA1.pem ; Certificate: /local/veego/agent/device_cert_filename.pem ; Key: /local/veego/agent/device_cert_key_filename.key .
 2023-10-31 14:45:01.71 mqtt                      (I) Connecting to the broker: a3ujdhq0dghtyg-ats.iot.us-west-2.amazonaws.com:8883 Keep alive: 120
 2023-10-31 14:45:01.105 mqtt                      (I) MQTT initialized
@@ -113,11 +103,11 @@
 2023-10-31 14:45:01.107 notifications-filter      (D) Initialization started.
 2023-10-31 14:45:01.108 notifications-filter      (I) Filter config file:/local/veego/agent/notifications-filter-config.json
 2023-10-31 14:45:01.108 notifications-filter      (D) Loading notification filters from file: /local/veego/agent/notifications-filter-config.json
-2023-10-31 14:45:01.108 notifications-filter      (V) missing: discovery-malfunctions
-2023-10-31 14:45:01.108 notifications-filter      (V) missing: router-malfunctions
-2023-10-31 14:45:01.108 notifications-filter      (V) missing: router-general-malfunctions
-2023-10-31 14:45:01.109 notifications-filter      (V) missing: wifi-device-malfunctions
-2023-10-31 14:45:01.109 notifications-filter      (V) missing: wifi-interface-malfunctions
+2023-10-31 14:45:01.108 notifications-filter      (W) missing: discovery-malfunctions
+2023-10-31 14:45:01.108 notifications-filter      (W) missing: router-malfunctions
+2023-10-31 14:45:01.108 notifications-filter      (W) missing: router-general-malfunctions
+2023-10-31 14:45:01.109 notifications-filter      (W) missing: wifi-device-malfunctions
+2023-10-31 14:45:01.109 notifications-filter      (W) missing: wifi-interface-malfunctions
 2023-10-31 14:45:01.109 notifications-filter      (I) Filter settings updated.
 2023-10-31 14:45:01.109 notifications-filter      (I) Filter settings hash: 91c2f6634978
 2023-10-31 14:45:01.109 notifications-filter      (D) New discovery-malfunctions:
@@ -331,12 +321,12 @@ ISP curr_interface:3
 2023-10-31 14:45:02.212 Notifications Mgr         (I) 06:dd:ee:c9:aa:8b: Added device event code EV08_DEVICE_ASSOCIATED on wl1
 2023-10-31 14:45:02.212 wl0                       (D) Could not find station with mac 06:dd:ee:c9:aa:8b
 2023-10-31 14:45:02.212 wl1 06:dd:ee:c9:aa:8b SCM (D) Didn't find device: 06:dd:ee:c9:aa:8b on other interface. do not trigger band change event
-2023-10-31 14:45:02.213 mostly_11b Sliding        (I) SlidingWindow class created, window_size: 60, threshold 0.5
-2023-10-31 14:45:02.213 bw_availability Sliding   (I) SlidingWindow class created, window_size: 36, threshold 40
-2023-10-31 14:45:02.213 bitrate_quality Sliding   (I) SlidingWindow class created, window_size: 36, threshold 40
-2023-10-31 14:45:02.213 link saturation Sliding   (I) SlidingWindow class created, window_size: 24, threshold 80
-2023-10-31 14:45:02.214 device saturation Sliding (I) SlidingWindow class created, window_size: 24, threshold 80
-2023-10-31 14:45:02.214 link strength Sliding     (I) SlidingWindow class created, window_size: 24, threshold -77
+2023-10-31 14:45:02.213 mostly_11b Sliding        (D) SlidingWindow class created, window_size: 60, threshold 0.5
+2023-10-31 14:45:02.213 bw_availability Sliding   (D) SlidingWindow class created, window_size: 36, threshold 40
+2023-10-31 14:45:02.213 bitrate_quality Sliding   (D) SlidingWindow class created, window_size: 36, threshold 40
+2023-10-31 14:45:02.213 link saturation Sliding   (D) SlidingWindow class created, window_size: 24, threshold 80
+2023-10-31 14:45:02.214 device saturation Sliding (D) SlidingWindow class created, window_size: 24, threshold 80
+2023-10-31 14:45:02.214 link strength Sliding     (D) SlidingWindow class created, window_size: 24, threshold -77
 2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b STA (D) RSSI was set to -68.6667
 2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b Link(D) WiFi Mode changed: Prev Mode = Unknown 802.11 mode; New Mode = 802.11ac
 2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b Link(D) TX NSS = 2 RX NSS = 1
@@ -579,8 +569,7 @@ predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentag
 2023-10-31 14:45:07.261 wl1.1 - bh                (V) Time to run cycle? false - 998ms passed and interval is 5000ms
 2023-10-31 14:45:07.261 Router                    (I) Cycle #5 completed in 128ms
 2023-10-31 14:45:07.261 Router                    (I) Cycle time stats - Avg: 39.8; Shortest: 0; Longest: 128
-2023-10-31 14:45:07.261 Router                    (I) -----------------------------------------------------------------------
-2023-10-31 14:45:08.132 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:08.132 Router                    (I) CYCLE STARTED ---------------------------------------------------------
 2023-10-31 14:45:08.133 wl1                       (V) Time to run cycle? false - 1000ms passed and interval is 5000ms
 2023-10-31 14:45:08.134 Router                    (I) should_run_cycle returned false interface name:wl1
 2023-10-31 14:45:08.135 wl0                       (V) Time to run smart scan cycle? false - 1000ms passed and interval is 5000ms
@@ -589,8 +578,7 @@ predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentag
 2023-10-31 14:45:08.137 wl1.1 - bh                (V) Time to run cycle? false - 1999ms passed and interval is 5000ms
 2023-10-31 14:45:08.138 Router                    (I) Cycle #6 completed in 4ms
 2023-10-31 14:45:08.139 Router                    (I) Cycle time stats - Avg: 33.8333; Shortest: 0; Longest: 128
-2023-10-31 14:45:08.140 Router                    (I) -----------------------------------------------------------------------
-2023-10-31 14:45:09.132 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:09.132 Router                    (I) CYCLE STARTED ---------------------------------------------------------
 2023-10-31 14:45:09.134 wl1                       (V) Time to run cycle? false - 2001ms passed and interval is 5000ms
 2023-10-31 14:45:09.135 Router                    (I) should_run_cycle returned false interface name:wl1
 2023-10-31 14:45:09.136 wl0                       (V) Time to run smart scan cycle? false - 2001ms passed and interval is 5000ms
@@ -599,8 +587,7 @@ predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentag
 2023-10-31 14:45:09.140 wl1.1 - bh                (V) Time to run cycle? false - 3000ms passed and interval is 5000ms
 2023-10-31 14:45:09.141 Router                    (I) Cycle #7 completed in 6ms
 2023-10-31 14:45:09.142 Router                    (I) Cycle time stats - Avg: 29.8571; Shortest: 0; Longest: 128
-2023-10-31 14:45:09.143 Router                    (I) -----------------------------------------------------------------------
-2023-10-31 14:45:10.133 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:10.133 Router                    (I) CYCLE STARTED ---------------------------------------------------------
 2023-10-31 14:45:10.133 wl1                       (V) Time to run cycle? false - 3000ms passed and interval is 5000ms
 2023-10-31 14:45:10.134 Router                    (I) should_run_cycle returned false interface name:wl1
 2023-10-31 14:45:10.134 wl0                       (V) Time to run smart scan cycle? false - 3000ms passed and interval is 5000ms
@@ -615,8 +602,7 @@ predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentag
 2023-10-31 14:45:10.180 wl1.1 - bh                (V) Time to run cycle? false - 3999ms passed and interval is 5000ms
 2023-10-31 14:45:10.180 Router                    (I) Cycle #8 completed in 46ms
 2023-10-31 14:45:10.180 Router                    (I) Cycle time stats - Avg: 31.875; Shortest: 0; Longest: 128
-2023-10-31 14:45:10.180 Router                    (I) -----------------------------------------------------------------------
-2023-10-31 14:45:11.133 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:11.133 Router                    (I) CYCLE STARTED ---------------------------------------------------------
 2023-10-31 14:45:11.133 wl1                       (V) Time to run cycle? false - 4000ms passed and interval is 5000ms
 2023-10-31 14:45:11.133 Router                    (I) should_run_cycle returned false interface name:wl1
 2023-10-31 14:45:11.133 wl0                       (V) Time to run smart scan cycle? false - 4000ms passed and interval is 5000ms
@@ -631,8 +617,7 @@ predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentag
 2023-10-31 14:45:11.161 wl1.1 RepairResult        (V) No need to send csa repair validity or repair already collected relevant data
 2023-10-31 14:45:11.161 Router                    (I) Cycle #9 completed in 27ms
 2023-10-31 14:45:11.161 Router                    (I) Cycle time stats - Avg: 31.3333; Shortest: 0; Longest: 128
-2023-10-31 14:45:11.161 Router                    (I) -----------------------------------------------------------------------
-2023-10-31 14:45:12.133 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:12.133 Router                    (I) CYCLE STARTED ---------------------------------------------------------
 2023-10-31 14:45:12.134 wl1                       (V) Time to run cycle? true - 5001ms passed and interval is 5000ms
 2023-10-31 14:45:12.134 wl1                       (V) Filling iface raw data
 2023-10-31 14:45:12.164 wl1                       (D) current channel = 52 OBSS = 3% NOPKT/Interference = 1%
@@ -714,7 +699,7 @@ predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentag
 2023-10-31 14:45:12.370 Router                    (D) build_and_get_telemetry for iface: wl1
 2023-10-31 14:45:12.370 Router                    (D) build_and_get_telemetry for iface: wl0
 2023-10-31 14:45:12.371 Router                    (D) protobuf interfaces_ collection size: 2
-2023-10-31 14:45:13.133 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:13.133 Router                    (I) CYCLE STARTED ---------------------------------------------------------
 2023-10-31 14:45:13.134 wl1                       (V) Time to run cycle? false - 1000ms passed and interval is 5000ms
 2023-10-31 14:45:13.135 Router                    (I) should_run_cycle returned false interface name:wl1
 
