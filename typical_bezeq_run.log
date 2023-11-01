@@ -1,0 +1,722 @@
+1970-01-01 00:23:42.161 agent                     (D) Command arguments: "/local/veego/agent/deviceagentrun" "/local/veego/agent/agent.config.json" \0\0\0
+1970-01-01 00:23:42.161 agent                     (D) Command arguments stored successfully
+1970-01-01 00:23:42.161 agent                     (D) installing signal handlers
+1970-01-01 00:23:42.162 agent                     (D) Set crash signal handler for: Aborted    error: Invalid argument
+1970-01-01 00:23:42.162 agent                     (D) Set crash signal handler for: Bus error    error: Invalid argument
+1970-01-01 00:23:42.162 agent                     (D) Set crash signal handler for: Arithmetic exception    error: Invalid argument
+1970-01-01 00:23:42.162 agent                     (D) Set crash signal handler for: Illegal instruction    error: Invalid argument
+1970-01-01 00:23:42.163 agent                     (D) Set crash signal handler for: Segmentation fault    error: Invalid argument
+1970-01-01 00:23:42.163 agent                     (D) Crash signal handlers installed successfully
+1970-01-01 00:23:42.164 settings                  (I) Loaded configuration file: /local/veego/agent/agent.config.json hash: b2a3265e44c0
+1970-01-01 00:23:42.164 settings                  (D) Configuration:
+{
+  "connection": {
+    "domain": "demo.xmpp.dev.veego.io",
+    "mqtt_broker": "a3ujdhq0dghtyg-ats.iot.us-west-2.amazonaws.com:8883",
+    "mqtt_ca_certificate_file": "/local/veego/agent/AmazonRootCA1.pem",
+    "mqtt_cert_file": "/local/veego/agent/device_cert_filename.pem",
+    "mqtt_key_file": "/local/veego/agent/device_cert_key_filename.key",
+    "mqtt_version": 5,
+    "ntp": "time.google.com",
+    "schema-registry": "http://schema-registry.dev.env.veego.io",
+    "veeng": "https://vudi.qa.env.veego.io",
+    "veeng_poll": 600
+  },
+  "discovery": {
+    "bitrate_bytes_support": true,
+    "bitrate_support": true,
+    "lan_interface": "br0",
+    "server_db": "https://api.dev.env.veego.io/model-v7"
+  },
+  "general": {
+    "env_name": "qa-env"
+  },
+  "log": {
+    "enable_display": true,
+    "enable_logger": true,
+    "enable_sending": false,
+    "screen_log_level": "verbose",
+    "send_log_level": "debug"
+  },
+  "notifications": {
+    "filter_settings_file": "/local/veego/agent/notifications-filter-config.json",
+    "updater": {
+      "disabled": false,
+      "interval_seconds": 86400
+    }
+  },
+  "repairs": {
+    "max_allowed_failed_disassoc_repair_percentage": 60,
+    "min_num_of_disassoc_repair": 5
+  },
+  "statistics": {
+    "all_connections": false,
+    "collect_performance": false,
+    "enable_report": false,
+    "repeat_report": false
+  },
+  "system": {
+    "device_id_command": {
+      "command": "agent_cli debug 3",
+      "regex": "SN:(\\w+)\\.",
+      "remove_white_spaces": true
+    },
+    "device_mac_command": {
+      "command": "twctl getrelist --modulename mini_httpd",
+      "regex": "\"mac_addr\":\"((?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2}))\","
+    },
+    "max_conntrack_lines": 10000
+  },
+  "telemetry": {
+    "aggregation_period_in_minutes": 60,
+    "aggregation_send_slot_span": 3,
+    "max_aggregations_to_keep": 3,
+    "telemetry_report_active": false
+  }
+}
+
+1970-01-01 00:23:42.164 settings                  (W) Recovery system configuration doesn't exists or not a file
+1970-01-01 00:23:42.165 settings                  (I) command: agent_cli debug 3
+1970-01-01 00:23:42.187 settings                  (I) command: twctl getrelist --modulename mini_httpd
+1970-01-01 00:23:42.224 settings                  (I) Host id is TZFEXSDTK4D MAC address is 00:b8:c2:ae:fc:a2
+1970-01-01 00:23:42.225 settings                  (I) configuration complete
+1970-01-01 00:23:42.225 settings                  (I) Host ID is TZFEXSDTK4D
+1970-01-01 00:23:42.226 settings                  (I) Host model name is HEIGHTS_BE
+1970-01-01 00:23:42.226 prerequisites             (I) All prerequisites were met. Proceeding to start agent
+1970-01-01 00:23:42.226 ntp_client                (I) Using ntp server time.google.com
+2023-10-31 14:45:01.67 ntp_client                (I) ntp delta time = -1698762078751; current steady_clock time = 1422316; current system time_mark time = 1422316; ntp full ms = 1698763501067
+2023-10-31 14:45:01.67 ntp_client                (I) ntp refresh started successfully 
+2023-10-31 14:45:01.68 logger                    (I) configuration complete
+2023-10-31 14:45:01.68 mqtt                      (I) MQTT settings parsed and successfully validated
+2023-10-31 14:45:01.69 mqtt                      (I) AWS Enabled: false
+2023-10-31 14:45:01.69 mqtt                      (I) MQTT host: a3ujdhq0dghtyg-ats.iot.us-west-2.amazonaws.com
+2023-10-31 14:45:01.69 mqtt                      (I) MQTT port: 8883
+2023-10-31 14:45:01.69 mqtt                      (I) MQTT protocol version: 5[5]
+2023-10-31 14:45:01.69 mqtt                      (D) MQTT keep_alive_interval_seconds: 120
+2023-10-31 14:45:01.69 mqtt                      (D) MQTT reconnect_delay_seconds: 5
+2023-10-31 14:45:01.69 mqtt                      (D) MQTT reconnect_delay_max_seconds: 300
+2023-10-31 14:45:01.70 mqtt                      (D) MQTT max_downtime: 0
+2023-10-31 14:45:01.70 mqtt                      (D) MQTT username: *hidden*
+2023-10-31 14:45:01.70 mqtt                      (D) MQTT password: *hidden*
+2023-10-31 14:45:01.70 mqtt                      (V) MQTT ca_file: /local/veego/agent/AmazonRootCA1.pem
+2023-10-31 14:45:01.70 mqtt                      (V) MQTT cert_file: /local/veego/agent/device_cert_filename.pem
+2023-10-31 14:45:01.70 mqtt                      (V) MQTT cert_key_file: /local/veego/agent/device_cert_key_filename.key
+2023-10-31 14:45:01.70 mqtt                      (I) TLS CA: /local/veego/agent/AmazonRootCA1.pem ; Certificate: /local/veego/agent/device_cert_filename.pem ; Key: /local/veego/agent/device_cert_key_filename.key .
+2023-10-31 14:45:01.71 mqtt                      (I) Connecting to the broker: a3ujdhq0dghtyg-ats.iot.us-west-2.amazonaws.com:8883 Keep alive: 120
+2023-10-31 14:45:01.105 mqtt                      (I) MQTT initialized
+2023-10-31 14:45:01.106 telemetry                 (I) using telemetry report mode normal
+2023-10-31 14:45:01.106 telemetry                 (I) telemetry inactive by default
+2023-10-31 14:45:01.106 statistics                (I) init statistics module
+2023-10-31 14:45:01.106 watchdog                  (I) register watchdog user telemetry with interval 30
+2023-10-31 14:45:01.106 notifications             (I) initializing
+2023-10-31 14:45:01.107 mqtt                      (D) registering connect callback
+2023-10-31 14:45:01.107 watchdog                  (D) watchdog disabled, thread not created
+2023-10-31 14:45:01.107 notifications             (I) initialization complete
+2023-10-31 14:45:01.107 notifications-filter      (D) Initialization started.
+2023-10-31 14:45:01.108 notifications-filter      (I) Filter config file:/local/veego/agent/notifications-filter-config.json
+2023-10-31 14:45:01.108 notifications-filter      (D) Loading notification filters from file: /local/veego/agent/notifications-filter-config.json
+2023-10-31 14:45:01.108 notifications-filter      (V) missing: discovery-malfunctions
+2023-10-31 14:45:01.108 notifications-filter      (V) missing: router-malfunctions
+2023-10-31 14:45:01.108 notifications-filter      (V) missing: router-general-malfunctions
+2023-10-31 14:45:01.109 notifications-filter      (V) missing: wifi-device-malfunctions
+2023-10-31 14:45:01.109 notifications-filter      (V) missing: wifi-interface-malfunctions
+2023-10-31 14:45:01.109 notifications-filter      (I) Filter settings updated.
+2023-10-31 14:45:01.109 notifications-filter      (I) Filter settings hash: 91c2f6634978
+2023-10-31 14:45:01.109 notifications-filter      (D) New discovery-malfunctions:
+2023-10-31 14:45:01.109 notifications-filter      (D) New router-events:
+2023-10-31 14:45:01.109 notifications-filter      (D)  - Outcome: REMOVE Code: ERROR Threshold: 3600
+2023-10-31 14:45:01.110 notifications-filter      (D) New router-malfunctions:
+2023-10-31 14:45:01.110 notifications-filter      (D) New router-general-malfunctions:
+2023-10-31 14:45:01.110 notifications-filter      (D) New wifi-device-events:
+2023-10-31 14:45:01.110 notifications-filter      (D)  - Outcome: REMOVE Code: EV15_DEVICE_BITRATE_QUALITY_GOOD Threshold: 3600
+2023-10-31 14:45:01.110 notifications-filter      (D)  - Outcome: REMOVE Code: EV16_DEVICE_BITRATE_QUALITY_BAD Threshold: 3600
+2023-10-31 14:45:01.110 notifications-filter      (D)  - Outcome: REMOVE Code: ERROR Threshold: 3600
+2023-10-31 14:45:01.110 notifications-filter      (D) New wifi-device-malfunctions:
+2023-10-31 14:45:01.110 notifications-filter      (D) New wifi-interface-events:
+2023-10-31 14:45:01.111 notifications-filter      (D)  - Outcome: REMOVE Code: ERROR Threshold: 3600
+2023-10-31 14:45:01.111 notifications-filter      (D) New wifi-interface-malfunctions:
+2023-10-31 14:45:01.111 notifications-filter      (D) CE02_RSRP:-108
+2023-10-31 14:45:01.111 notifications-filter      (D) CE03_SNR:5
+2023-10-31 14:45:01.111 notifications-filter      (D) CE04_RSRP:-108
+2023-10-31 14:45:01.111 notifications-filter      (D) CE04_SNR:5
+2023-10-31 14:45:01.111 notifications-filter      (V) Loaded filters config from file: /local/veego/agent/notifications-filter-config.json
+2023-10-31 14:45:01.111 notifications-filter      (D) Initialization completed successfully.
+2023-10-31 14:45:01.112 notif-post-process        (I) Registered notification post process successfully.
+2023-10-31 14:45:01.112 updater                   (I) AGENT: update disabled: true
+2023-10-31 14:45:01.112 updater                   (I) AGENT: update interval: 86400s
+2023-10-31 14:45:01.112 updater                   (I) AGENT: update download retry interval max: 7200s
+2023-10-31 14:45:01.112 updater                   (I) AGENT: update download retry delay: 300s
+2023-10-31 14:45:01.112 updater                   (I) AGENT: update download retry delay max: 3600s
+2023-10-31 14:45:01.112 updater                   (I) AGENT: update download retry exponential backoff: true
+2023-10-31 14:45:01.113 updater                   (I) AGENT: update URL: 
+2023-10-31 14:45:01.113 updater                   (I) AGENT: update recovery URL: 
+2023-10-31 14:45:01.113 updater                   (I) AGENT: update remove config timeout: 3600s
+2023-10-31 14:45:01.113 updater                   (I) AGENT: restart after update: enabled
+2023-10-31 14:45:01.113 updater                   (I) AGENT: restart after crash: disabled
+2023-10-31 14:45:01.113 updater                   (I) NOTIFICATION: update disabled: true
+2023-10-31 14:45:01.113 updater                   (I) NOTIFICATION: update interval: 86400s
+2023-10-31 14:45:01.113 updater                   (I) NOTIFICATION: update download retry interval max: 7200s
+2023-10-31 14:45:01.114 updater                   (I) NOTIFICATION: update download retry delay: 300s
+2023-10-31 14:45:01.114 updater                   (I) NOTIFICATION: update download retry delay max: 3600s
+2023-10-31 14:45:01.114 updater                   (I) NOTIFICATION: update download retry exponential backoff: true
+2023-10-31 14:45:01.114 updater                   (I) NOTIFICATION: update URL: 
+2023-10-31 14:45:01.114 agent                     (D) cwd: /local/veego/agent
+2023-10-31 14:45:01.114 agent                     (D) command: /local/veego/agent/deviceagentrun
+2023-10-31 14:45:01.114 agent                     (D) argv: "/local/veego/agent/deviceagentrun" "/local/veego/agent/agent.config.json" \0\0\0
+2023-10-31 14:45:01.114 agent                     (D) config file: /local/veego/agent/agent.config.json
+2023-10-31 14:45:01.115 agent                     (D) config hash: b2a3265e44c0
+2023-10-31 14:45:01.115 agent                     (D) agent restart after crash: false
+2023-10-31 14:45:01.115 agent                     (D) recovery mode: false
+2023-10-31 14:45:01.115 agent                     (D) recovery timeout: 3600
+2023-10-31 14:45:01.115 agent                     (D) start time: 1698770700
+2023-10-31 14:45:01.115 agent                     (I) crash signal handlers uninstalled successfully
+2023-10-31 14:45:01.115 agent                     (I) Agent initialized successfully
+2023-10-31 14:45:01.115 updater                   (I) Updater won't be started. No need
+2023-10-31 14:45:01.123 discovery                 (I) WAN interface: eth0.4 IPv4 address: 192.168.68.101 IPv6 address: fe80::2b8:c2ff:feae:fca6
+2023-10-31 14:45:01.129 discovery                 (I) LAN addresses IPv4=10.0.0.138 IPv6=fe80::2b8:c2ff:feae:fca2
+2023-10-31 14:45:01.129 main                      (I) Starting discovery
+2023-10-31 14:45:01.130 main                      (I) Starting wifi
+2023-10-31 14:45:01.130 discovery                 (I) Using file conntrack reader
+2023-10-31 14:45:01.130 notifications             (I) enable notifications from server
+2023-10-31 14:45:01.130 notifications             (D) telemetry_: agent_monitoring_1
+2023-10-31 14:45:01.130 discovery                 (I) Domain server at 10.100.102.1
+2023-10-31 14:45:01.130 main                      (I) Updater start command: /local/veego/veeupdater start&
+2023-10-31 14:45:01.130 discovery                 (I) Windows model loaded
+2023-10-31 14:45:01.130 watchdog                  (I) register watchdog user events with interval 5
+2023-10-31 14:45:01.130 discovery                 (I) Domain model loaded
+ >> Function(Line) = wifi_thread(250)
+2023-10-31 14:45:01.131 WiFi Main                 (I) WiFi main thread started
+2023-10-31 14:45:01.131 discovery                 (I) IP model loaded
+2023-10-31 14:45:01.131 WiFi Main                 (I) Initializing router
+2023-10-31 14:45:01.131 discovery                 (I) Tree model loaded
+2023-10-31 14:45:01.131 discovery                 (I) Distance model loaded
+2023-10-31 14:45:01.131 wl0 config                (I) Initializing configuration:
+2023-10-31 14:45:01.131 wl0 config                (I) Backhaul? false
+2023-10-31 14:45:01.131 discovery                 (I) Torrent model loaded
+2023-10-31 14:45:01.132 wl0 config                (I) ISP CSA supported? true
+2023-10-31 14:45:01.132 wl0 config                (I) ISP Bandsteering supported? false
+2023-10-31 14:45:01.132 wl0 config                (I) ISP Devices disassociation supported ? true
+2023-10-31 14:45:01.132 discovery                 (I) Steam model loaded
+2023-10-31 14:45:01.132 wl0 config                (I) Router CSA supported? true
+2023-10-31 14:45:01.132 wl0 config                (I) Router CSA enabled? true
+2023-10-31 14:45:01.132 discovery                 (I) Classification model will be updated every 1440 minutes
+2023-10-31 14:45:01.132 wl0 config                (I) Router Bandsteering supported? true
+2023-10-31 14:45:01.132 wl0 config                (I) Router Bandsteering enabled? true
+2023-10-31 14:45:01.133 wl0 config                (I) Router Devices disassociation supported ? true
+2023-10-31 14:45:01.133 wl0 config                (I) Router Devices disassociation enabled ? true
+2023-10-31 14:45:01.133 wl0 config                (I) Smartscanner scan interval = 5 seconds
+2023-10-31 14:45:01.133 wl0 config                (I) Collection interval = 4 seconds
+2023-10-31 14:45:01.133 wl0 config                (I) malfunction_enabled: true
+2023-10-31 14:45:01.133 wl1 config                (I) Initializing configuration:
+2023-10-31 14:45:01.134 wl1 config                (I) Backhaul? false
+2023-10-31 14:45:01.134 wl1 config                (I) ISP CSA supported? true
+2023-10-31 14:45:01.134 discovery                 (I) loading default model with hash c45ad1eef49293a93770185e37a7b53e4b8e98b9019f7a3278a61de52699b44e
+2023-10-31 14:45:01.134 wl1 config                (I) ISP Bandsteering supported? false
+2023-10-31 14:45:01.135 wl1 config                (I) ISP Devices disassociation supported ? true
+2023-10-31 14:45:01.135 wl1 config                (I) Router CSA supported? true
+2023-10-31 14:45:01.135 wl1 config                (I) Router CSA enabled? true
+2023-10-31 14:45:01.135 wl1 config                (I) Router Bandsteering supported? true
+2023-10-31 14:45:01.136 wl1 config                (I) Router Bandsteering enabled? true
+2023-10-31 14:45:01.136 wl1 config                (I) Router Devices disassociation supported ? true
+2023-10-31 14:45:01.136 wl1 config                (I) Router Devices disassociation enabled ? true
+2023-10-31 14:45:01.136 wl1 config                (I) Smartscanner scan interval = DISABLED
+2023-10-31 14:45:01.136 wl1 config                (I) Collection interval = 5 seconds
+2023-10-31 14:45:01.137 wl1 config                (I) malfunction_enabled: true
+2023-10-31 14:45:01.137 wl1.1 config              (I) Initializing configuration:
+2023-10-31 14:45:01.137 wl1.1 config              (I) Backhaul? true
+2023-10-31 14:45:01.137 wl1.1 config              (I) ISP CSA supported? false
+2023-10-31 14:45:01.137 wl1.1 config              (I) ISP Bandsteering supported? false
+2023-10-31 14:45:01.138 wl1.1 config              (I) ISP Devices disassociation supported ? true
+2023-10-31 14:45:01.138 wl1.1 config              (I) Router CSA supported? true
+2023-10-31 14:45:01.138 wl1.1 config              (I) Router CSA enabled? true
+2023-10-31 14:45:01.138 wl1.1 config              (I) Router Bandsteering supported? true
+2023-10-31 14:45:01.138 wl1.1 config              (I) Router Bandsteering enabled? true
+2023-10-31 14:45:01.139 wl1.1 config              (I) Router Devices disassociation supported ? true
+2023-10-31 14:45:01.139 wl1.1 config              (I) Router Devices disassociation enabled ? true
+2023-10-31 14:45:01.139 wl1.1 config              (I) Smartscanner scan interval = DISABLED
+2023-10-31 14:45:01.139 wl1.1 config              (I) Collection interval = 5 seconds
+2023-10-31 14:45:01.140 wl1.1 config              (I) malfunction_enabled: false
+2023-10-31 14:45:01.140 Notifications Mgr         (I) Added router event code EV25_AGENT_REBOOT
+2023-10-31 14:45:01.140 Router                    (I) ======= BASE ROUTER INIT START =======
+2023-10-31 14:45:01.147 wl1                       (I) Interface status changed. Old status: UNKNOWN_INTERFACE_STATUS; New status = INTERFACE_STATUS_UP
+2023-10-31 14:45:01.147 ap saturation Sliding     (I) SlidingWindow class created, window_size: 24, threshold 80
+2023-10-31 14:45:01.154 wl1                       (I) SSID was set to "BeOrianBalagan"
+2023-10-31 14:45:01.167 wl1                       (D) 802.11ax is not supported on interface
+2023-10-31 14:45:01.174 wl1                       (I) Bandwidth changed from: BW_UNKNOWN to : 80Mhz
+2023-10-31 14:45:01.174 wl1                       (I) Channel changed from: 0 to : 52
+2023-10-31 14:45:01.174 wl1 config                (D) Getting ISP CSA support for iface. CSA is ENABLED
+2023-10-31 14:45:01.181 wl0                       (I) Interface status changed. Old status: UNKNOWN_INTERFACE_STATUS; New status = INTERFACE_STATUS_UP
+2023-10-31 14:45:01.182 ap saturation Sliding     (I) SlidingWindow class created, window_size: 30, threshold 80
+2023-10-31 14:45:01.187 wl0                       (I) SSID was set to "BeOrianBalagan"
+2023-10-31 14:45:01.198 wl0                       (D) 802.11ax is not supported on interface
+2023-10-31 14:45:01.204 wl0                       (I) Bandwidth changed from: BW_UNKNOWN to : 20Mhz
+2023-10-31 14:45:01.204 wl0                       (I) Channel changed from: 0 to : 1
+2023-10-31 14:45:01.204 wl0 config                (D) Getting ISP CSA support for iface. CSA is ENABLED
+2023-10-31 14:45:01.218 SmartScanner wl0          (I) Checking for supported channels!
+2023-10-31 14:45:01.218 SmartScanner wl0          (I) Supported channels for interface changed!
+2023-10-31 14:45:01.218 SmartScanner wl0          (I) BEFORE CHANGE: empty channel list
+2023-10-31 14:45:01.218 SmartScanner wl0          (I) AFTER CHANGE: 1,2,3,4,5,6,7,8,9,10,11,12,13
+2023-10-31 14:45:01.218 SmartScanner wl0          (I) Going to scan channels: 1,2,3,4,5,6,7,8,9,10,11,12,13
+2023-10-31 14:45:01.224 Mesh                      (I) Initializing Mesh
+2023-10-31 14:45:01.224 Mesh                      (I) Creating Mesh Interfaces
+2023-10-31 14:45:01.224 Mesh                      (I) Added interface wl1.1 to Mesh backhauls
+2023-10-31 14:45:01.231 wl1.1 - bh                (I) Interface status changed. Old status: UNKNOWN_INTERFACE_STATUS; New status = INTERFACE_STATUS_UP
+2023-10-31 14:45:01.231 ap saturation Sliding     (I) SlidingWindow class created, window_size: 24, threshold 80
+2023-10-31 14:45:01.238 wl1.1 - bh                (I) SSID was set to "BezeqWiFiTK4D_bh"
+2023-10-31 14:45:01.253 wl1.1 - bh                (D) 802.11ax is not supported on interface
+2023-10-31 14:45:01.260 wl1.1 - bh                (I) Bandwidth changed from: BW_UNKNOWN to : 80Mhz
+2023-10-31 14:45:01.260 wl1.1 - bh                (I) Channel changed from: 0 to : 52
+2023-10-31 14:45:01.260 wl1.1 config              (D) Getting ISP CSA support for iface. CSA is DISABLED
+2023-10-31 14:45:01.303 Mesh                      (I) Mesh component #1: Serial# = TZFEXSDTK4D; Mode = "Master"
+2023-10-31 14:45:01.318 wl1.1 - bh                (D) 802.11ax is not supported on interface
+2023-10-31 14:45:01.318 wl1.1 - bh                (V) Time to run cycle? true - 60000ms passed and interval is 5000ms
+2023-10-31 14:45:01.319 wl1.1 - bh                (V) Filling iface raw data
+2023-10-31 14:45:01.351 wl1.1 - bh                (I) CCA STATS are unsupported on this interface
+2023-10-31 14:45:01.372 wl1.1 - bh                (I) No stations are currently associated
+2023-10-31 14:45:01.372 wl1.1 - bh                (D) Interface wl1.1 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 1 required: 21.384
+2023-10-31 14:45:01.373 wl1.1 - bh                (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:01.373 wl1.1 - bh                (D) CSA is not required from discovery
+2023-10-31 14:45:01.373 wl1.1 RepairResult        (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:01.402 Router                    (I) ISP interface_number_of_entries:3
+ISP curr_interface:1
+2023-10-31 14:45:01.434 Router                    (I) ISP connection_status:Disconnected
+ISP curr_interface:2
+2023-10-31 14:45:01.468 Router                    (I) ISP connection_status:Disconnected
+ISP curr_interface:3
+2023-10-31 14:45:01.498 Router                    (I) ISP connection_status:Connecting
+2023-10-31 14:45:01.498 Router                    (I) ISP active_interface_:-1
+2023-10-31 14:45:01.529 Router                    (I) ISP no active interface detected, assuming default interface 1
+2023-10-31 14:45:01.529 Router                    (I) ISP: RMS
+2023-10-31 14:45:01.529 Router                    (I) ============== ROUTER INIT END =============
+2023-10-31 14:45:01.529 WiFi Main                 (I) Registering callbacks
+2023-10-31 14:45:01.530 WiFi Main                 (I) Scheduling router cycle with interval of: 1 seconds
+2023-10-31 14:45:01.530 watchdog                  (I) register watchdog user wifi with interval 5
+2023-10-31 14:45:01.884 discovery                 (I) Classification constants updated
+2023-10-31 14:45:01.889 discovery                 (I) Distance model updated
+2023-10-31 14:45:02.7 discovery                 (I) Tree model updated
+2023-10-31 14:45:02.121 mqtt                      (I) Successfully connected to the broker
+2023-10-31 14:45:02.122 discovery                 (I) Naming rules updated
+2023-10-31 14:45:02.122 discovery                 (I) Score model updated
+2023-10-31 14:45:02.122 discovery                 (I) Verification and validation constants updated
+2023-10-31 14:45:02.124 discovery                 (I) Windows model updated
+2023-10-31 14:45:02.131 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:02.156 wl1                       (D) 802.11ax is not supported on interface
+2023-10-31 14:45:02.156 wl1                       (V) Time to run cycle? true - 60990ms passed and interval is 5000ms
+2023-10-31 14:45:02.156 wl1                       (V) Filling iface raw data
+2023-10-31 14:45:02.179 wl1                       (I) CCA STATS are unsupported on this interface
+2023-10-31 14:45:02.194 wl1                       (D) mac: D8:F2:CA:B9:33:81 retries_percentage: 13.5
+2023-10-31 14:45:02.195 wl1                       (D) mac: 06:DD:EE:C9:AA:8B retries_percentage: 66.7
+2023-10-31 14:45:02.195 wl1                       (I) Creating a new station with mac d8:f2:ca:b9:33:81
+2023-10-31 14:45:02.195 wl1 d8:f2:ca:b9:33:81 SCM (I) Device connected trigger event associated
+2023-10-31 14:45:02.195 Notifications Mgr         (I) d8:f2:ca:b9:33:81: Added device event code EV08_DEVICE_ASSOCIATED on wl1
+2023-10-31 14:45:02.195 wl0                       (D) Could not find station with mac d8:f2:ca:b9:33:81
+2023-10-31 14:45:02.195 wl1 d8:f2:ca:b9:33:81 SCM (D) Didn't find device: d8:f2:ca:b9:33:81 on other interface. do not trigger band change event
+2023-10-31 14:45:02.196 mostly_11b Sliding        (I) SlidingWindow class created, window_size: 60, threshold 0.5
+2023-10-31 14:45:02.196 bw_availability Sliding   (I) SlidingWindow class created, window_size: 36, threshold 40
+2023-10-31 14:45:02.196 bitrate_quality Sliding   (I) SlidingWindow class created, window_size: 36, threshold 40
+2023-10-31 14:45:02.196 link saturation Sliding   (I) SlidingWindow class created, window_size: 24, threshold 80
+2023-10-31 14:45:02.196 device saturation Sliding (I) SlidingWindow class created, window_size: 24, threshold 80
+2023-10-31 14:45:02.196 link strength Sliding     (I) SlidingWindow class created, window_size: 24, threshold -77
+2023-10-31 14:45:02.209 wl1 d8:f2:ca:b9:33:81 STA (D) RSSI was set to -81.3333
+2023-10-31 14:45:02.209 wl1 d8:f2:ca:b9:33:81 Link(D) WiFi Mode changed: Prev Mode = Unknown 802.11 mode; New Mode = 802.11ac
+2023-10-31 14:45:02.210 wl1 d8:f2:ca:b9:33:81 Link(D) TX NSS = 2 RX NSS = 1
+2023-10-31 14:45:02.210 wl1 d8:f2:ca:b9:33:81 Link(D) TX BITRATE = 0 RX BITRATE = 0
+2023-10-31 14:45:02.210 wl1 d8:f2:ca:b9:33:81 Link(D) TX PHYRATE = 351 RX PHYRATE = 292.5
+2023-10-31 14:45:02.210 wl1 d8:f2:ca:b9:33:81 Link(D) Link Bandwidth = 80 was extracted from option 1
+2023-10-31 14:45:02.210 wl1 d8:f2:ca:b9:33:81 STA (I) Filling is_11b_native: false
+2023-10-31 14:45:02.210 wl1 d8:f2:ca:b9:33:81 STA (I) Max nss was set to 2
+2023-10-31 14:45:02.210 wl1 d8:f2:ca:b9:33:81 STA (I) Max VHT MCS index was set to 9
+2023-10-31 14:45:02.210 wl1 d8:f2:ca:b9:33:81 STA (V) Max phyrate calculated from vht mcs is 866.667
+2023-10-31 14:45:02.211 wl1 d8:f2:ca:b9:33:81 STA (V) Raw data parsing completed
+2023-10-31 14:45:02.211 wl1                       (I) Creating a new station with mac 06:dd:ee:c9:aa:8b
+2023-10-31 14:45:02.211 wl1 06:dd:ee:c9:aa:8b SCM (I) Device connected trigger event associated
+2023-10-31 14:45:02.212 Notifications Mgr         (I) 06:dd:ee:c9:aa:8b: Added device event code EV08_DEVICE_ASSOCIATED on wl1
+2023-10-31 14:45:02.212 wl0                       (D) Could not find station with mac 06:dd:ee:c9:aa:8b
+2023-10-31 14:45:02.212 wl1 06:dd:ee:c9:aa:8b SCM (D) Didn't find device: 06:dd:ee:c9:aa:8b on other interface. do not trigger band change event
+2023-10-31 14:45:02.213 mostly_11b Sliding        (I) SlidingWindow class created, window_size: 60, threshold 0.5
+2023-10-31 14:45:02.213 bw_availability Sliding   (I) SlidingWindow class created, window_size: 36, threshold 40
+2023-10-31 14:45:02.213 bitrate_quality Sliding   (I) SlidingWindow class created, window_size: 36, threshold 40
+2023-10-31 14:45:02.213 link saturation Sliding   (I) SlidingWindow class created, window_size: 24, threshold 80
+2023-10-31 14:45:02.214 device saturation Sliding (I) SlidingWindow class created, window_size: 24, threshold 80
+2023-10-31 14:45:02.214 link strength Sliding     (I) SlidingWindow class created, window_size: 24, threshold -77
+2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b STA (D) RSSI was set to -68.6667
+2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b Link(D) WiFi Mode changed: Prev Mode = Unknown 802.11 mode; New Mode = 802.11ac
+2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b Link(D) TX NSS = 2 RX NSS = 1
+2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b Link(D) TX BITRATE = 0 RX BITRATE = 0
+2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b Link(D) TX PHYRATE = 585 RX PHYRATE = 6
+2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b Link(D) Link Bandwidth = 80 was extracted from option 1
+2023-10-31 14:45:02.226 wl1 06:dd:ee:c9:aa:8b STA (I) Filling is_11b_native: false
+2023-10-31 14:45:02.227 wl1 06:dd:ee:c9:aa:8b STA (I) Max nss was set to 2
+2023-10-31 14:45:02.227 wl1 06:dd:ee:c9:aa:8b STA (I) Max VHT MCS index was set to 9
+2023-10-31 14:45:02.227 wl1 06:dd:ee:c9:aa:8b STA (V) Max phyrate calculated from vht mcs is 866.667
+2023-10-31 14:45:02.227 wl1 06:dd:ee:c9:aa:8b STA (V) Raw data parsing completed
+2023-10-31 14:45:02.239 wl1 06:dd:ee:c9:aa:8b STA (D) RSSI was set to -68.6667
+2023-10-31 14:45:02.239 wl1 06:dd:ee:c9:aa:8b Link(D) TX NSS = 2 RX NSS = 1
+2023-10-31 14:45:02.239 wl1 06:dd:ee:c9:aa:8b Link(V) bitrate = 0 previous bytes = 19424968 current bytes = 19424968 diff = 1423476
+2023-10-31 14:45:02.239 wl1 06:dd:ee:c9:aa:8b Link(V) bitrate = 0 previous bytes = 1367699 current bytes = 1367699 diff = 1423476
+2023-10-31 14:45:02.239 wl1 06:dd:ee:c9:aa:8b Link(D) TX BITRATE = 0 RX BITRATE = 0
+2023-10-31 14:45:02.240 wl1 06:dd:ee:c9:aa:8b Link(D) TX PHYRATE = 585 RX PHYRATE = 6
+2023-10-31 14:45:02.240 wl1 06:dd:ee:c9:aa:8b Link(D) Link Bandwidth = 80 was extracted from option 1
+2023-10-31 14:45:02.240 wl1 06:dd:ee:c9:aa:8b STA (V) Raw data parsing completed
+2023-10-31 14:45:02.252 wl1 d8:f2:ca:b9:33:81 STA (D) RSSI was set to -81.3333
+2023-10-31 14:45:02.252 wl1 d8:f2:ca:b9:33:81 Link(D) TX NSS = 2 RX NSS = 1
+2023-10-31 14:45:02.252 wl1 d8:f2:ca:b9:33:81 Link(V) bitrate = 4.14358e-05 previous bytes = 3252507 current bytes = 3260238 diff = 1423476
+2023-10-31 14:45:02.252 wl1 d8:f2:ca:b9:33:81 Link(V) bitrate = 2.84064e-06 previous bytes = 1081235 current bytes = 1081765 diff = 1423476
+2023-10-31 14:45:02.252 wl1 d8:f2:ca:b9:33:81 Link(D) TX BITRATE = 2.07179e-05 RX BITRATE = 0
+2023-10-31 14:45:02.252 wl1 d8:f2:ca:b9:33:81 Link(D) TX PHYRATE = 468 RX PHYRATE = 292.5
+2023-10-31 14:45:02.252 wl1 d8:f2:ca:b9:33:81 Link(D) Link Bandwidth = 80 was extracted from option 1
+2023-10-31 14:45:02.253 wl1 d8:f2:ca:b9:33:81 STA (V) Raw data parsing completed
+2023-10-31 14:45:02.253 wl1 06:dd:ee:c9:aa:8b STA (D) RSSI: -68.6667 bitrate: 0 max phyrate: 866.667
+2023-10-31 14:45:02.253 wl1 06:dd:ee:c9:aa:8b Link(D) Link saturation: 0
+2023-10-31 14:45:02.253 wl1 06:dd:ee:c9:aa:8b Link(D) max theoretical bitrate: 482.994 max device bitrate: 435.054 predicted bitrate.last: 38.6229 predicted bitrate.average: 38.6229
+2023-10-31 14:45:02.254 wl1 06:dd:ee:c9:aa:8b STA (D)  bw_availability.last:100 bw_availability.average()100 bw_availability.window_size():36 bw_availability.threshold():40 bw_availability.samples_percentage_thresh():0.9 bw_availability.below_threshold():0 bw_availability.above_threshold():1
+2023-10-31 14:45:02.254 wl1 06:dd:ee:c9:aa:8b STA (D)  bitrate_quality.last:8.87774  bitrate_quality.average()8.87774 bitrate_quality.window_size():36 bitrate_quality.threshold():40 bitrate_quality.samples_percentage_thresh():0.9 bitrate_quality.below_threshold():1 bitrate_quality.above_threshold():0
+2023-10-31 14:45:02.254 wl1 06:dd:ee:c9:aa:8b STA (I) Weak: false unstable: false saturated: false mode: 802.11ac
+2023-10-31 14:45:02.254 wl1 06:dd:ee:c9:aa:8b STA (D) bitrate_quality_level: LEVEL_GOOD bitrate_quality: 8.87774 bw_availability_level: LEVEL_GOOD bw_availability: 100 weak: false
+2023-10-31 14:45:02.254 wl1 06:dd:ee:c9:aa:8b STA (D) Link 06:dd:ee:c9:aa:8b saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 1 required: 21.384
+2023-10-31 14:45:02.254 wl1 06:dd:ee:c9:aa:8b STA (V) Disassoc is not required for this station.
+2023-10-31 14:45:02.254 wl1 d8:f2:ca:b9:33:81 STA (D) RSSI: -81.3333 bitrate: 2.07179e-05 max phyrate: 866.667
+2023-10-31 14:45:02.254 wl1 d8:f2:ca:b9:33:81 Link(D) Link saturation: 9.44008e-05
+2023-10-31 14:45:02.255 wl1 d8:f2:ca:b9:33:81 Link(D) max theoretical bitrate: 217.571 max device bitrate: 136.915 predicted bitrate.last: 21.9467 predicted bitrate.average: 21.9467
+2023-10-31 14:45:02.255 wl1 d8:f2:ca:b9:33:81 STA (D)  bw_availability.last:99.9999 bw_availability.average()99.9999 bw_availability.window_size():36 bw_availability.threshold():40 bw_availability.samples_percentage_thresh():0.9 bw_availability.below_threshold():0 bw_availability.above_threshold():1
+2023-10-31 14:45:02.255 wl1 d8:f2:ca:b9:33:81 STA (D)  bitrate_quality.last:16.0295  bitrate_quality.average()16.0295 bitrate_quality.window_size():36 bitrate_quality.threshold():40 bitrate_quality.samples_percentage_thresh():0.9 bitrate_quality.below_threshold():1 bitrate_quality.above_threshold():0
+2023-10-31 14:45:02.256 wl1 d8:f2:ca:b9:33:81 STA (I) Weak: false unstable: false saturated: false mode: 802.11ac
+2023-10-31 14:45:02.256 wl1 d8:f2:ca:b9:33:81 STA (D) bitrate_quality_level: LEVEL_GOOD bitrate_quality: 16.0295 bw_availability_level: LEVEL_GOOD bw_availability: 99.9999 weak: false
+2023-10-31 14:45:02.256 wl1 d8:f2:ca:b9:33:81 STA (D) Link d8:f2:ca:b9:33:81 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 1 required: 21.384
+2023-10-31 14:45:02.256 wl1 d8:f2:ca:b9:33:81 STA (V) Disassoc is not required for this station.
+2023-10-31 14:45:02.257 wl0                       (V) Time to run smart scan cycle? true - 1423380ms passed and interval is 5000ms
+2023-10-31 14:45:02.257 wl0 config                (D) Getting ISP CSA support for iface. CSA is ENABLED
+2023-10-31 14:45:02.269 SmartScanner wl0          (I) Going to scan channels: 1
+2023-10-31 14:45:02.304 SmartScanner wl0          (I) Entry #1: ALLOWED Smart Scanner DB: CCA score 0.709648; Channel: 1; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:02.304 SmartScanner wl0          (I) Entry #2: ALLOWED Smart Scanner DB: CCA score 0.666892; Channel: 2; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:02.305 SmartScanner wl0          (I) Entry #3: ALLOWED Smart Scanner DB: CCA score 0.541627; Channel: 3; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:02.326 wl0                       (D) 802.11ax is not supported on interface
+2023-10-31 14:45:02.326 wl0                       (V) Time to run cycle? true - 60990ms passed and interval is 4000ms
+2023-10-31 14:45:02.326 wl0                       (V) Filling iface raw data
+2023-10-31 14:45:02.350 wl0                       (D) current channel = 1 OBSS = 4% Interference = 1%
+2023-10-31 14:45:02.360 wl0                       (I) No stations are currently associated
+2023-10-31 14:45:02.361 wl1                       (D) Interface wl1 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 1 required: 21.384
+2023-10-31 14:45:02.361 wl1                       (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:02.361 wl1 06:dd:ee:c9:aa:8b STA (D) device_quality_level: GOOD, device_connectivity_level: GOOD ,previous_general_qoe_level :GOOD
+2023-10-31 14:45:02.361 wl1 d8:f2:ca:b9:33:81 STA (D) device_quality_level: GOOD, device_connectivity_level: GOOD ,previous_general_qoe_level :GOOD
+2023-10-31 14:45:02.361 wl1                       (D) CSA is not required from discovery
+predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentage,    failure_percentage,     RSSI
+38 0 0 585 66 0 -68
+predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentage,    failure_percentage,     RSSI
+21 0 0 468 13 0 -81
+2023-10-31 14:45:02.361 wl1 RepairResult          (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:02.361 wl0                       (D) Interface wl0 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 1 required: 26.73
+2023-10-31 14:45:02.361 wl0                       (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:02.362 wl0                       (D) CSA is not required from discovery
+2023-10-31 14:45:02.362 wl0 RepairResult          (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:02.362 wl1.1 - bh                (V) Time to run cycle? false - 990ms passed and interval is 5000ms
+2023-10-31 14:45:02.362 WiFi Main                 (D) Preparing notifications
+2023-10-31 14:45:02.362 Router                    (D) interfaces_ collection size: 2
+2023-10-31 14:45:02.362 Router                    (D) build_and_get_telemetry for iface: wl1
+2023-10-31 14:45:02.362 Router                    (D) build_and_get_telemetry for iface: wl0
+2023-10-31 14:45:02.363 Router                    (D) protobuf interfaces_ collection size: 2
+2023-10-31 14:45:02.363 WiFi Main                 (D) Done preparing notifications
+2023-10-31 14:45:02.363 WiFi Main                 (D) Got prepare notifications event
+2023-10-31 14:45:02.364 transform-malfunctions    (D) Mac: 06:dd:ee:c9:aa:8b Active service samples: 0 Classified service samples: 0
+2023-10-31 14:45:02.364 transform-malfunctions    (D) Mac: d8:f2:ca:b9:33:81 Active service samples: 0 Classified service samples: 0
+2023-10-31 14:45:02.364 telemetry                 (D) telemetry_started disabled
+2023-10-31 14:45:02.364 notifications-filter      (V) Interface event filter: iface=wl1
+2023-10-31 14:45:02.364 notifications-filter      (V) Interface malfunction filter: iface=wl1
+2023-10-31 14:45:02.364 notifications-filter      (V) Device event filter: iface=wl1dev=06:dd:ee:c9:aa:8b
+2023-10-31 14:45:02.365 notifications-filter      (V) Device malfunction filter: iface=wl1dev=06:dd:ee:c9:aa:8b
+2023-10-31 14:45:02.365 notifications-filter      (V) Device event filter: iface=wl1dev=d8:f2:ca:b9:33:81
+2023-10-31 14:45:02.365 notifications-filter      (V) Device malfunction filter: iface=wl1dev=d8:f2:ca:b9:33:81
+2023-10-31 14:45:02.365 notifications-filter      (V) Interface event filter: iface=wl1
+2023-10-31 14:45:02.365 notifications-filter      (V) Interface malfunction filter: iface=wl1
+2023-10-31 14:45:02.366 notifications-filter      (V) Device event filter: iface=wl1dev=06:dd:ee:c9:aa:8b
+2023-10-31 14:45:02.366 notifications-filter      (V) Device malfunction filter: iface=wl1dev=06:dd:ee:c9:aa:8b
+2023-10-31 14:45:02.366 notifications-filter      (V) Device event filter: iface=wl1dev=d8:f2:ca:b9:33:81
+2023-10-31 14:45:02.367 notifications-filter      (V) Device malfunction filter: iface=wl1dev=d8:f2:ca:b9:33:81
+2023-10-31 14:45:02.367 notifications             (I) notifications ready to send
+2023-10-31 14:45:02.368 mqtt                      (D) Sending message to topic TZFEXSDTK4D/notifications-proto
+2023-10-31 14:45:02.711 discovery                 (I) Domain model updated
+2023-10-31 14:45:02.769 discovery                 (I) IP model update
+2023-10-31 14:45:02.769 discovery                 (I) Classification model loaded
+2023-10-31 14:45:02.864 discovery                 (I) Start loading classification model
+2023-10-31 14:45:03.121 mqtt                      (D) Calling connect handler
+2023-10-31 14:45:03.122 notifications             (D) registration_message:{"agent_boot_time": 1698763503, "agent_version": "toolkit: 1.0.7-0-57910a5eb15, wifi: 1.0.0-0-7960e109eda, discovery: 1.0.7-1-a866ac30c1e", "id": "TZFEXSDTK4D", "model": "HEIGHTS_BE", "name": "TZFEXSDTK4D", "system_boot_time": 1698762078, "type": "Router"}
+2023-10-31 14:45:03.122 notifications             (I) register agent
+2023-10-31 14:45:03.122 mqtt                      (D) Sending message to topic TZFEXSDTK4D/agent_registration
+2023-10-31 14:45:03.122 notifications             (D) exiting register_with_server
+2023-10-31 14:45:03.131 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:03.131 wl1                       (V) Time to run cycle? false - 1000ms passed and interval is 5000ms
+2023-10-31 14:45:03.131 Router                    (I) should_run_cycle returned false interface name:wl1
+2023-10-31 14:45:03.131 wl0                       (V) Time to run smart scan cycle? false - 1000ms passed and interval is 5000ms
+2023-10-31 14:45:03.131 wl0                       (V) Time to run cycle? false - 1000ms passed and interval is 4000ms
+2023-10-31 14:45:03.131 Router                    (I) should_run_cycle returned false interface name:wl0
+2023-10-31 14:45:03.131 wl1.1 - bh                (V) Time to run cycle? false - 1991ms passed and interval is 5000ms
+2023-10-31 14:45:03.132 Router                    (I) Cycle #1 completed in 0ms
+2023-10-31 14:45:03.132 Router                    (I) Cycle time stats - Avg: 0; Shortest: 0; Longest: 0
+2023-10-31 14:45:03.132 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:03.621 mqtt                      (D) Granted QoS: 0 on broker
+2023-10-31 14:45:03.621 mqtt                      (I) Successfully subscribed to topic: TZFEXSDTK4D/agent_monitoring_1
+2023-10-31 14:45:03.863 discovery                 (E) Bad reply from the model hash server
+2023-10-31 14:45:03.863 discovery                 (I) Model was not changed
+2023-10-31 14:45:03.864 discovery                 (W) using the default model
+2023-10-31 14:45:03.865 discovery                 (I) Classification model reader ready
+2023-10-31 14:45:03.865 discovery                 (I) conntrack init
+2023-10-31 14:45:03.867 discovery                 (I) using bridge mode false
+2023-10-31 14:45:03.867 discovery                 (I) Domain server at 10.100.102.1
+2023-10-31 14:45:03.868 discovery                 (I) vudi intervals: poll_interval 600 version_poll_interval 0
+2023-10-31 14:45:03.869 discovery                 (I) Initial veeng delay 457 with intervals: poll_interval 600 version_poll_interval 0
+2023-10-31 14:45:03.907 discovery                 (I) Added LAN station d8:f2:ca:b9:33:81
+2023-10-31 14:45:03.908 discovery                 (I) Added LAN station 06:dd:ee:c9:aa:8b
+2023-10-31 14:45:04.131 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:04.132 wl1                       (V) Time to run cycle? false - 2000ms passed and interval is 5000ms
+2023-10-31 14:45:04.132 Router                    (I) should_run_cycle returned false interface name:wl1
+2023-10-31 14:45:04.133 wl0                       (V) Time to run smart scan cycle? false - 2000ms passed and interval is 5000ms
+2023-10-31 14:45:04.133 wl0                       (V) Time to run cycle? false - 2000ms passed and interval is 4000ms
+2023-10-31 14:45:04.134 Router                    (I) should_run_cycle returned false interface name:wl0
+2023-10-31 14:45:04.134 wl1.1 - bh                (V) Time to run cycle? false - 2991ms passed and interval is 5000ms
+2023-10-31 14:45:04.135 Router                    (I) Cycle #2 completed in 2ms
+2023-10-31 14:45:04.136 Router                    (I) Cycle time stats - Avg: 1; Shortest: 0; Longest: 2
+2023-10-31 14:45:04.136 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:05.131 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:05.133 wl1                       (V) Time to run cycle? false - 3002ms passed and interval is 5000ms
+2023-10-31 14:45:05.134 Router                    (I) should_run_cycle returned false interface name:wl1
+2023-10-31 14:45:05.135 wl0                       (V) Time to run smart scan cycle? false - 3002ms passed and interval is 5000ms
+2023-10-31 14:45:05.136 wl0                       (V) Time to run cycle? false - 3002ms passed and interval is 4000ms
+2023-10-31 14:45:05.137 Router                    (I) should_run_cycle returned false interface name:wl0
+2023-10-31 14:45:05.139 wl1.1 - bh                (V) Time to run cycle? false - 3993ms passed and interval is 5000ms
+2023-10-31 14:45:05.140 Router                    (I) Cycle #3 completed in 7ms
+2023-10-31 14:45:05.141 Router                    (I) Cycle time stats - Avg: 3; Shortest: 0; Longest: 7
+2023-10-31 14:45:05.142 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:06.132 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:06.134 wl1                       (V) Time to run cycle? false - 4003ms passed and interval is 5000ms
+2023-10-31 14:45:06.134 Router                    (I) should_run_cycle returned false interface name:wl1
+2023-10-31 14:45:06.135 wl0                       (V) Time to run smart scan cycle? false - 4003ms passed and interval is 5000ms
+2023-10-31 14:45:06.135 wl0                       (V) Time to run cycle? true - 4003ms passed and interval is 4000ms
+2023-10-31 14:45:06.136 wl0                       (V) Filling iface raw data
+2023-10-31 14:45:06.163 wl0                       (D) current channel = 1 OBSS = 3% Interference = 2%
+2023-10-31 14:45:06.173 wl0                       (I) No stations are currently associated
+2023-10-31 14:45:06.174 wl0                       (D) Interface wl0 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 2 required: 26.73
+2023-10-31 14:45:06.174 wl0                       (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:06.174 wl0                       (D) CSA is not required from discovery
+2023-10-31 14:45:06.174 wl0 RepairResult          (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:06.175 wl1.1 - bh                (V) Time to run cycle? true - 4994ms passed and interval is 5000ms
+2023-10-31 14:45:06.175 wl1.1 - bh                (V) Filling iface raw data
+2023-10-31 14:45:06.196 wl1.1 - bh                (I) No stations are currently associated
+2023-10-31 14:45:06.196 wl1.1 - bh                (D) Interface wl1.1 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 2 required: 21.384
+2023-10-31 14:45:06.196 wl1.1 - bh                (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:06.196 wl1.1 - bh                (D) CSA is not required from discovery
+2023-10-31 14:45:06.196 wl1.1 RepairResult        (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:06.196 Router                    (I) Cycle #4 completed in 62ms
+2023-10-31 14:45:06.196 Router                    (I) Cycle time stats - Avg: 17.75; Shortest: 0; Longest: 62
+2023-10-31 14:45:06.196 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:07.132 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:07.133 wl1                       (V) Time to run cycle? true - 5001ms passed and interval is 5000ms
+2023-10-31 14:45:07.134 wl1                       (V) Filling iface raw data
+2023-10-31 14:45:07.169 wl1                       (D) current channel = 52 OBSS = 4% NOPKT/Interference = 1%
+2023-10-31 14:45:07.181 wl1                       (D) mac: D8:F2:CA:B9:33:81 retries_percentage: 0
+2023-10-31 14:45:07.181 wl1                       (D) mac: 06:DD:EE:C9:AA:8B retries_percentage: 0
+2023-10-31 14:45:07.181 wl1 06:dd:ee:c9:aa:8b SCM (V) The same connection mode received ,mode: CONNECTED
+2023-10-31 14:45:07.181 wl1 d8:f2:ca:b9:33:81 SCM (V) The same connection mode received ,mode: CONNECTED
+2023-10-31 14:45:07.192 wl1 06:dd:ee:c9:aa:8b STA (D) RSSI was set to -68
+2023-10-31 14:45:07.192 wl1 06:dd:ee:c9:aa:8b Link(D) TX NSS = 2 RX NSS = 1
+2023-10-31 14:45:07.192 wl1 06:dd:ee:c9:aa:8b Link(V) bitrate = 0.000224892 previous bytes = 19424968 current bytes = 19425114 diff = 4953
+2023-10-31 14:45:07.193 wl1 06:dd:ee:c9:aa:8b Link(V) bitrate = 0.000548368 previous bytes = 1367699 current bytes = 1368055 diff = 4953
+2023-10-31 14:45:07.193 wl1 06:dd:ee:c9:aa:8b Link(D) TX BITRATE = 0.000112446 RX BITRATE = 0
+2023-10-31 14:45:07.193 wl1 06:dd:ee:c9:aa:8b Link(D) TX PHYRATE = 585 RX PHYRATE = 6
+2023-10-31 14:45:07.193 wl1 06:dd:ee:c9:aa:8b Link(D) Link Bandwidth = 80 was extracted from option 1
+2023-10-31 14:45:07.193 wl1 06:dd:ee:c9:aa:8b STA (V) Raw data parsing completed
+2023-10-31 14:45:07.205 wl1 d8:f2:ca:b9:33:81 STA (D) RSSI was set to -79.6667
+2023-10-31 14:45:07.205 wl1 d8:f2:ca:b9:33:81 Link(D) TX NSS = 2 RX NSS = 1
+2023-10-31 14:45:07.205 wl1 d8:f2:ca:b9:33:81 Link(V) bitrate = 0.073529 previous bytes = 3260238 current bytes = 3307973 diff = 4953
+2023-10-31 14:45:07.206 wl1 d8:f2:ca:b9:33:81 Link(V) bitrate = 0.0162061 previous bytes = 1081765 current bytes = 1092286 diff = 4953
+2023-10-31 14:45:07.206 wl1 d8:f2:ca:b9:33:81 Link(D) TX BITRATE = 0.0367645 RX BITRATE = 0
+2023-10-31 14:45:07.206 wl1 d8:f2:ca:b9:33:81 Link(D) TX PHYRATE = 351 RX PHYRATE = 6
+2023-10-31 14:45:07.206 wl1 d8:f2:ca:b9:33:81 Link(D) Link Bandwidth = 80 was extracted from option 1
+2023-10-31 14:45:07.207 wl1 d8:f2:ca:b9:33:81 STA (V) Raw data parsing completed
+2023-10-31 14:45:07.207 wl1 06:dd:ee:c9:aa:8b STA (D) RSSI: -68 bitrate: 0.000112446 max phyrate: 866.667
+2023-10-31 14:45:07.207 wl1 06:dd:ee:c9:aa:8b Link(D) Link saturation: 2.39905e-05
+2023-10-31 14:45:07.207 wl1 06:dd:ee:c9:aa:8b Link(D) max theoretical bitrate: 496.035 max device bitrate: 449.774 predicted bitrate.last: 468.711 predicted bitrate.average: 253.667
+2023-10-31 14:45:07.208 wl1 06:dd:ee:c9:aa:8b STA (D)  bw_availability.last:100 bw_availability.average()100 bw_availability.window_size():36 bw_availability.threshold():40 bw_availability.samples_percentage_thresh():0.9 bw_availability.below_threshold():0 bw_availability.above_threshold():2
+2023-10-31 14:45:07.208 wl1 06:dd:ee:c9:aa:8b STA (D)  bitrate_quality.last:100  bitrate_quality.average()54.4389 bitrate_quality.window_size():36 bitrate_quality.threshold():40 bitrate_quality.samples_percentage_thresh():0.9 bitrate_quality.below_threshold():1 bitrate_quality.above_threshold():1
+2023-10-31 14:45:07.208 wl1 06:dd:ee:c9:aa:8b STA (I) Weak: false unstable: false saturated: false mode: 802.11ac
+2023-10-31 14:45:07.208 wl1 06:dd:ee:c9:aa:8b STA (D) bitrate_quality_level: LEVEL_GOOD bitrate_quality: 54.4389 bw_availability_level: LEVEL_GOOD bw_availability: 100 weak: false
+2023-10-31 14:45:07.209 wl1 06:dd:ee:c9:aa:8b STA (D) Link 06:dd:ee:c9:aa:8b saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 2 required: 21.384
+2023-10-31 14:45:07.209 wl1 06:dd:ee:c9:aa:8b STA (V) Disassoc is not required for this station.
+2023-10-31 14:45:07.209 wl1 d8:f2:ca:b9:33:81 STA (D) RSSI: -79.6667 bitrate: 0.0367645 max phyrate: 866.667
+2023-10-31 14:45:07.209 wl1 d8:f2:ca:b9:33:81 Link(D) Link saturation: 0.0211628
+2023-10-31 14:45:07.210 wl1 d8:f2:ca:b9:33:81 Link(D) max theoretical bitrate: 254.409 max device bitrate: 173.723 predicted bitrate.last: 173.723 predicted bitrate.average: 97.8346
+2023-10-31 14:45:07.210 wl1 d8:f2:ca:b9:33:81 STA (D)  bw_availability.last:99.9788 bw_availability.average()99.9894 bw_availability.window_size():36 bw_availability.threshold():40 bw_availability.samples_percentage_thresh():0.9 bw_availability.below_threshold():0 bw_availability.above_threshold():2
+2023-10-31 14:45:07.210 wl1 d8:f2:ca:b9:33:81 STA (D)  bitrate_quality.last:100  bitrate_quality.average()58.0147 bitrate_quality.window_size():36 bitrate_quality.threshold():40 bitrate_quality.samples_percentage_thresh():0.9 bitrate_quality.below_threshold():1 bitrate_quality.above_threshold():1
+2023-10-31 14:45:07.210 wl1 d8:f2:ca:b9:33:81 STA (I) Weak: false unstable: false saturated: false mode: 802.11ac
+2023-10-31 14:45:07.211 wl1 d8:f2:ca:b9:33:81 STA (D) bitrate_quality_level: LEVEL_GOOD bitrate_quality: 58.0147 bw_availability_level: LEVEL_GOOD bw_availability: 99.9894 weak: false
+2023-10-31 14:45:07.211 wl1 d8:f2:ca:b9:33:81 STA (D) Link d8:f2:ca:b9:33:81 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 2 required: 21.384
+2023-10-31 14:45:07.211 wl1 d8:f2:ca:b9:33:81 STA (V) Disassoc is not required for this station.
+2023-10-31 14:45:07.211 wl0                       (V) Time to run smart scan cycle? true - 5001ms passed and interval is 5000ms
+2023-10-31 14:45:07.211 wl0 config                (D) Getting ISP CSA support for iface. CSA is ENABLED
+2023-10-31 14:45:07.222 SmartScanner wl0          (I) Going to scan channels: 2
+2023-10-31 14:45:07.258 SmartScanner wl0          (I) Entry #1: ALLOWED Smart Scanner DB: CCA score 0.709648; Channel: 1; Last switch: more than 24 hours ago; Last scan: 1698763507232677800
+2023-10-31 14:45:07.258 SmartScanner wl0          (I) Entry #2: ALLOWED Smart Scanner DB: CCA score 0.666892; Channel: 2; Last switch: more than 24 hours ago; Last scan: 1698763507232677800
+2023-10-31 14:45:07.258 SmartScanner wl0          (I) Entry #3: ALLOWED Smart Scanner DB: CCA score 0.57847; Channel: 3; Last switch: more than 24 hours ago; Last scan: 1698763507232677800
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #4: ALLOWED Smart Scanner DB: CCA score 0.382138; Channel: 4; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #5: ALLOWED Smart Scanner DB: CCA score 0.54763; Channel: 5; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #6: ALLOWED Smart Scanner DB: CCA score 0.636628; Channel: 6; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #7: ALLOWED Smart Scanner DB: CCA score 0.697156; Channel: 7; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #8: ALLOWED Smart Scanner DB: CCA score 0.732202; Channel: 8; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #9: ALLOWED Smart Scanner DB: CCA score 0.611914; Channel: 9; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #10: ALLOWED Smart Scanner DB: CCA score 0.666892; Channel: 10; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #11: ALLOWED Smart Scanner DB: CCA score 0.591232; Channel: 11; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.259 SmartScanner wl0          (I) Entry #12: ALLOWED Smart Scanner DB: CCA score 0.704722; Channel: 12; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.260 SmartScanner wl0          (I) Entry #13: ALLOWED Smart Scanner DB: CCA score 0.70213; Channel: 13; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:07.260 wl0                       (V) Time to run cycle? false - 998ms passed and interval is 4000ms
+2023-10-31 14:45:07.260 Router                    (I) should_run_cycle returned false interface name:wl0
+2023-10-31 14:45:07.260 wl1                       (D) Interface wl1 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 2 required: 21.384
+2023-10-31 14:45:07.260 wl1                       (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:07.260 wl1 06:dd:ee:c9:aa:8b STA (D) device_quality_level: GOOD, device_connectivity_level: GOOD ,previous_general_qoe_level :GOOD
+2023-10-31 14:45:07.260 wl1 d8:f2:ca:b9:33:81 STA (D) device_quality_level: GOOD, device_connectivity_level: GOOD ,previous_general_qoe_level :GOOD
+2023-10-31 14:45:07.260 wl1                       (D) CSA is not required from discovery
+predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentage,    failure_percentage,     RSSI
+468 4 1 585 0 0 -68
+predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentage,    failure_percentage,     RSSI
+173 4 1 351 0 0 -79
+2023-10-31 14:45:07.260 wl1 RepairResult          (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:07.261 wl1.1 - bh                (V) Time to run cycle? false - 998ms passed and interval is 5000ms
+2023-10-31 14:45:07.261 Router                    (I) Cycle #5 completed in 128ms
+2023-10-31 14:45:07.261 Router                    (I) Cycle time stats - Avg: 39.8; Shortest: 0; Longest: 128
+2023-10-31 14:45:07.261 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:08.132 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:08.133 wl1                       (V) Time to run cycle? false - 1000ms passed and interval is 5000ms
+2023-10-31 14:45:08.134 Router                    (I) should_run_cycle returned false interface name:wl1
+2023-10-31 14:45:08.135 wl0                       (V) Time to run smart scan cycle? false - 1000ms passed and interval is 5000ms
+2023-10-31 14:45:08.136 wl0                       (V) Time to run cycle? false - 1999ms passed and interval is 4000ms
+2023-10-31 14:45:08.137 Router                    (I) should_run_cycle returned false interface name:wl0
+2023-10-31 14:45:08.137 wl1.1 - bh                (V) Time to run cycle? false - 1999ms passed and interval is 5000ms
+2023-10-31 14:45:08.138 Router                    (I) Cycle #6 completed in 4ms
+2023-10-31 14:45:08.139 Router                    (I) Cycle time stats - Avg: 33.8333; Shortest: 0; Longest: 128
+2023-10-31 14:45:08.140 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:09.132 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:09.134 wl1                       (V) Time to run cycle? false - 2001ms passed and interval is 5000ms
+2023-10-31 14:45:09.135 Router                    (I) should_run_cycle returned false interface name:wl1
+2023-10-31 14:45:09.136 wl0                       (V) Time to run smart scan cycle? false - 2001ms passed and interval is 5000ms
+2023-10-31 14:45:09.137 wl0                       (V) Time to run cycle? false - 3000ms passed and interval is 4000ms
+2023-10-31 14:45:09.139 Router                    (I) should_run_cycle returned false interface name:wl0
+2023-10-31 14:45:09.140 wl1.1 - bh                (V) Time to run cycle? false - 3000ms passed and interval is 5000ms
+2023-10-31 14:45:09.141 Router                    (I) Cycle #7 completed in 6ms
+2023-10-31 14:45:09.142 Router                    (I) Cycle time stats - Avg: 29.8571; Shortest: 0; Longest: 128
+2023-10-31 14:45:09.143 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:10.133 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:10.133 wl1                       (V) Time to run cycle? false - 3000ms passed and interval is 5000ms
+2023-10-31 14:45:10.134 Router                    (I) should_run_cycle returned false interface name:wl1
+2023-10-31 14:45:10.134 wl0                       (V) Time to run smart scan cycle? false - 3000ms passed and interval is 5000ms
+2023-10-31 14:45:10.135 wl0                       (V) Time to run cycle? true - 3999ms passed and interval is 4000ms
+2023-10-31 14:45:10.135 wl0                       (V) Filling iface raw data
+2023-10-31 14:45:10.168 wl0                       (D) current channel = 1 OBSS = 4% Interference = 2%
+2023-10-31 14:45:10.179 wl0                       (I) No stations are currently associated
+2023-10-31 14:45:10.179 wl0                       (D) Interface wl0 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 3 required: 26.73
+2023-10-31 14:45:10.179 wl0                       (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:10.179 wl0                       (D) CSA is not required from discovery
+2023-10-31 14:45:10.179 wl0 RepairResult          (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:10.180 wl1.1 - bh                (V) Time to run cycle? false - 3999ms passed and interval is 5000ms
+2023-10-31 14:45:10.180 Router                    (I) Cycle #8 completed in 46ms
+2023-10-31 14:45:10.180 Router                    (I) Cycle time stats - Avg: 31.875; Shortest: 0; Longest: 128
+2023-10-31 14:45:10.180 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:11.133 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:11.133 wl1                       (V) Time to run cycle? false - 4000ms passed and interval is 5000ms
+2023-10-31 14:45:11.133 Router                    (I) should_run_cycle returned false interface name:wl1
+2023-10-31 14:45:11.133 wl0                       (V) Time to run smart scan cycle? false - 4000ms passed and interval is 5000ms
+2023-10-31 14:45:11.133 wl0                       (V) Time to run cycle? false - 999ms passed and interval is 4000ms
+2023-10-31 14:45:11.133 Router                    (I) should_run_cycle returned false interface name:wl0
+2023-10-31 14:45:11.133 wl1.1 - bh                (V) Time to run cycle? true - 4999ms passed and interval is 5000ms
+2023-10-31 14:45:11.134 wl1.1 - bh                (V) Filling iface raw data
+2023-10-31 14:45:11.160 wl1.1 - bh                (I) No stations are currently associated
+2023-10-31 14:45:11.160 wl1.1 - bh                (D) Interface wl1.1 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 3 required: 21.384
+2023-10-31 14:45:11.160 wl1.1 - bh                (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:11.161 wl1.1 - bh                (D) CSA is not required from discovery
+2023-10-31 14:45:11.161 wl1.1 RepairResult        (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:11.161 Router                    (I) Cycle #9 completed in 27ms
+2023-10-31 14:45:11.161 Router                    (I) Cycle time stats - Avg: 31.3333; Shortest: 0; Longest: 128
+2023-10-31 14:45:11.161 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:12.133 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:12.134 wl1                       (V) Time to run cycle? true - 5001ms passed and interval is 5000ms
+2023-10-31 14:45:12.134 wl1                       (V) Filling iface raw data
+2023-10-31 14:45:12.164 wl1                       (D) current channel = 52 OBSS = 3% NOPKT/Interference = 1%
+2023-10-31 14:45:12.175 wl1                       (D) mac: D8:F2:CA:B9:33:81 retries_percentage: 33.3
+2023-10-31 14:45:12.175 wl1                       (D) mac: 06:DD:EE:C9:AA:8B retries_percentage: 0
+2023-10-31 14:45:12.175 wl1 06:dd:ee:c9:aa:8b SCM (V) The same connection mode received ,mode: CONNECTED
+2023-10-31 14:45:12.176 wl1 d8:f2:ca:b9:33:81 SCM (V) The same connection mode received ,mode: CONNECTED
+2023-10-31 14:45:12.187 wl1 06:dd:ee:c9:aa:8b STA (D) RSSI was set to -67.6667
+2023-10-31 14:45:12.187 wl1 06:dd:ee:c9:aa:8b Link(D) TX NSS = 2 RX NSS = 1
+2023-10-31 14:45:12.187 wl1 06:dd:ee:c9:aa:8b Link(V) bitrate = 0.000103884 previous bytes = 19425114 current bytes = 19425182 diff = 4994
+2023-10-31 14:45:12.188 wl1 06:dd:ee:c9:aa:8b Link(V) bitrate = 0.000245962 previous bytes = 1368055 current bytes = 1368216 diff = 4994
+2023-10-31 14:45:12.188 wl1 06:dd:ee:c9:aa:8b Link(D) TX BITRATE = 5.19422e-05 RX BITRATE = 0
+2023-10-31 14:45:12.188 wl1 06:dd:ee:c9:aa:8b Link(D) TX PHYRATE = 585 RX PHYRATE = 6
+2023-10-31 14:45:12.188 wl1 06:dd:ee:c9:aa:8b Link(D) Link Bandwidth = 80 was extracted from option 1
+2023-10-31 14:45:12.188 wl1 06:dd:ee:c9:aa:8b STA (V) Raw data parsing completed
+2023-10-31 14:45:12.199 wl1 d8:f2:ca:b9:33:81 STA (D) RSSI was set to -80
+2023-10-31 14:45:12.199 wl1 d8:f2:ca:b9:33:81 Link(D) TX NSS = 2 RX NSS = 1
+2023-10-31 14:45:12.200 wl1 d8:f2:ca:b9:33:81 Link(V) bitrate = 0.0718239 previous bytes = 3307973 current bytes = 3354987 diff = 4994
+2023-10-31 14:45:12.200 wl1 d8:f2:ca:b9:33:81 Link(V) bitrate = 0.0121239 previous bytes = 1092286 current bytes = 1100222 diff = 4994
+2023-10-31 14:45:12.200 wl1 d8:f2:ca:b9:33:81 Link(D) TX BITRATE = 0.0359119 RX BITRATE = 0
+2023-10-31 14:45:12.200 wl1 d8:f2:ca:b9:33:81 Link(D) TX PHYRATE = 351 RX PHYRATE = 292.5
+2023-10-31 14:45:12.200 wl1 d8:f2:ca:b9:33:81 Link(D) Link Bandwidth = 80 was extracted from option 1
+2023-10-31 14:45:12.200 wl1 d8:f2:ca:b9:33:81 STA (V) Raw data parsing completed
+2023-10-31 14:45:12.200 wl1 06:dd:ee:c9:aa:8b STA (D) RSSI: -67.6667 bitrate: 5.19422e-05 max phyrate: 866.667
+2023-10-31 14:45:12.201 wl1 06:dd:ee:c9:aa:8b Link(D) Link saturation: 1.09066e-05
+2023-10-31 14:45:12.201 wl1 06:dd:ee:c9:aa:8b Link(D) max theoretical bitrate: 502.521 max device bitrate: 457.002 predicted bitrate.last: 476.244 predicted bitrate.average: 472.478
+2023-10-31 14:45:12.201 wl1 06:dd:ee:c9:aa:8b STA (D)  bw_availability.last:100 bw_availability.average()100 bw_availability.window_size():36 bw_availability.threshold():40 bw_availability.samples_percentage_thresh():0.9 bw_availability.below_threshold():0 bw_availability.above_threshold():3
+2023-10-31 14:45:12.201 wl1 06:dd:ee:c9:aa:8b STA (D)  bitrate_quality.last:100  bitrate_quality.average()69.6259 bitrate_quality.window_size():36 bitrate_quality.threshold():40 bitrate_quality.samples_percentage_thresh():0.9 bitrate_quality.below_threshold():1 bitrate_quality.above_threshold():2
+2023-10-31 14:45:12.201 wl1 06:dd:ee:c9:aa:8b STA (I) Weak: false unstable: false saturated: false mode: 802.11ac
+2023-10-31 14:45:12.201 wl1 06:dd:ee:c9:aa:8b STA (D) bitrate_quality_level: LEVEL_GOOD bitrate_quality: 69.6259 bw_availability_level: LEVEL_GOOD bw_availability: 100 weak: false
+2023-10-31 14:45:12.201 wl1 06:dd:ee:c9:aa:8b STA (D) Link 06:dd:ee:c9:aa:8b saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 3 required: 21.384
+2023-10-31 14:45:12.201 wl1 06:dd:ee:c9:aa:8b STA (V) Disassoc is not required for this station.
+2023-10-31 14:45:12.201 wl1 d8:f2:ca:b9:33:81 STA (D) RSSI: -80 bitrate: 0.0359119 max phyrate: 866.667
+2023-10-31 14:45:12.202 wl1 d8:f2:ca:b9:33:81 Link(D) Link saturation: 0.0216079
+2023-10-31 14:45:12.202 wl1 d8:f2:ca:b9:33:81 Link(D) max theoretical bitrate: 247.088 max device bitrate: 166.198 predicted bitrate.last: 166.198 predicted bitrate.average: 169.96
+2023-10-31 14:45:12.202 link strength Sliding     (D) SlidingWindow about to be below the threshold, threshold:21.6, current above: 3
+2023-10-31 14:45:12.202 wl1 d8:f2:ca:b9:33:81 STA (D)  bw_availability.last:99.9784 bw_availability.average()99.9857 bw_availability.window_size():36 bw_availability.threshold():40 bw_availability.samples_percentage_thresh():0.9 bw_availability.below_threshold():0 bw_availability.above_threshold():3
+2023-10-31 14:45:12.202 wl1 d8:f2:ca:b9:33:81 STA (D)  bitrate_quality.last:100  bitrate_quality.average()72.0098 bitrate_quality.window_size():36 bitrate_quality.threshold():40 bitrate_quality.samples_percentage_thresh():0.9 bitrate_quality.below_threshold():1 bitrate_quality.above_threshold():2
+2023-10-31 14:45:12.202 wl1 d8:f2:ca:b9:33:81 STA (I) Weak: false unstable: false saturated: false mode: 802.11ac
+2023-10-31 14:45:12.202 wl1 d8:f2:ca:b9:33:81 STA (D) bitrate_quality_level: LEVEL_GOOD bitrate_quality: 72.0098 bw_availability_level: LEVEL_GOOD bw_availability: 99.9857 weak: false
+2023-10-31 14:45:12.202 wl1 d8:f2:ca:b9:33:81 STA (D) Link d8:f2:ca:b9:33:81 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 3 required: 21.384
+2023-10-31 14:45:12.202 wl1 d8:f2:ca:b9:33:81 STA (V) Disassoc is not required for this station.
+2023-10-31 14:45:12.202 wl0                       (V) Time to run smart scan cycle? true - 5001ms passed and interval is 5000ms
+2023-10-31 14:45:12.203 wl0 config                (D) Getting ISP CSA support for iface. CSA is ENABLED
+2023-10-31 14:45:12.214 SmartScanner wl0          (I) Going to scan channels: 3
+2023-10-31 14:45:12.249 SmartScanner wl0          (I) Entry #1: ALLOWED Smart Scanner DB: CCA score 0.666892; Channel: 1; Last switch: more than 24 hours ago; Last scan: 1698763512224763520
+2023-10-31 14:45:12.249 SmartScanner wl0          (I) Entry #2: ALLOWED Smart Scanner DB: CCA score 0.621496; Channel: 2; Last switch: more than 24 hours ago; Last scan: 1698763512224763520
+2023-10-31 14:45:12.249 SmartScanner wl0          (I) Entry #3: ALLOWED Smart Scanner DB: CCA score 0.57847; Channel: 3; Last switch: more than 24 hours ago; Last scan: 1698763507232677800
+2023-10-31 14:45:12.249 SmartScanner wl0          (I) Entry #4: ALLOWED Smart Scanner DB: CCA score 0.382138; Channel: 4; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #5: ALLOWED Smart Scanner DB: CCA score 0.54763; Channel: 5; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #6: ALLOWED Smart Scanner DB: CCA score 0.636628; Channel: 6; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #7: ALLOWED Smart Scanner DB: CCA score 0.697156; Channel: 7; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #8: ALLOWED Smart Scanner DB: CCA score 0.732202; Channel: 8; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #9: ALLOWED Smart Scanner DB: CCA score 0.611914; Channel: 9; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #10: ALLOWED Smart Scanner DB: CCA score 0.666892; Channel: 10; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #11: ALLOWED Smart Scanner DB: CCA score 0.591232; Channel: 11; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #12: ALLOWED Smart Scanner DB: CCA score 0.704722; Channel: 12; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.250 SmartScanner wl0          (I) Entry #13: ALLOWED Smart Scanner DB: CCA score 0.70213; Channel: 13; Last switch: more than 24 hours ago; Last scan: 0
+2023-10-31 14:45:12.251 wl0                       (V) Time to run cycle? false - 2000ms passed and interval is 4000ms
+2023-10-31 14:45:12.251 Router                    (I) should_run_cycle returned false interface name:wl0
+2023-10-31 14:45:12.251 wl1                       (D) Interface wl1 saturation: is_saturated: false threshold: 80 above threshold: 0 below threshold: 3 required: 21.384
+2023-10-31 14:45:12.251 wl1                       (V) Interface is not saturated, no need to check for AS
+2023-10-31 14:45:12.251 wl1 06:dd:ee:c9:aa:8b STA (D) device_quality_level: GOOD, device_connectivity_level: GOOD ,previous_general_qoe_level :GOOD
+2023-10-31 14:45:12.251 wl1 d8:f2:ca:b9:33:81 STA (D) device_quality_level: GOOD, device_connectivity_level: GOOD ,previous_general_qoe_level :GOOD
+2023-10-31 14:45:12.251 wl1                       (D) CSA is not required from discovery
+predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentage,    failure_percentage,     RSSI
+476 3 1 585 0 0 -67
+predicted bitrate,    OBSS,    interference,    tx_phyrate,    retries_percentage,    failure_percentage,     RSSI
+166 3 1 351 33 0 -80
+2023-10-31 14:45:12.251 wl1 RepairResult          (V) No need to send csa repair validity or repair already collected relevant data
+2023-10-31 14:45:12.251 wl1.1 - bh                (V) Time to run cycle? false - 1000ms passed and interval is 5000ms
+2023-10-31 14:45:12.251 Router                    (I) Cycle #10 completed in 117ms
+2023-10-31 14:45:12.252 Router                    (I) Cycle time stats - Avg: 39.9; Shortest: 0; Longest: 128
+2023-10-31 14:45:12.252 Router                    (I) -----------------------------------------------------------------------
+2023-10-31 14:45:12.369 telemetry-analysis        (D) Device: "d8:f2:ca:b9:33:81" has no services
+2023-10-31 14:45:12.369 telemetry-analysis        (D) Device: "06:dd:ee:c9:aa:8b" has no services
+2023-10-31 14:45:12.369 telemetry                 (D) telemetry_started disabled
+2023-10-31 14:45:12.370 Router                    (D) interfaces_ collection size: 2
+2023-10-31 14:45:12.370 Router                    (D) build_and_get_telemetry for iface: wl1
+2023-10-31 14:45:12.370 Router                    (D) build_and_get_telemetry for iface: wl0
+2023-10-31 14:45:12.371 Router                    (D) protobuf interfaces_ collection size: 2
+2023-10-31 14:45:13.133 Router                    (I) CYCLE STARTED
+2023-10-31 14:45:13.134 wl1                       (V) Time to run cycle? false - 1000ms passed and interval is 5000ms
+2023-10-31 14:45:13.135 Router                    (I) should_run_cycle returned false interface name:wl1
+
